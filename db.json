@@ -1,0 +1,79 @@
+{
+    "cardapio": [
+      {
+        "categoria": "Hamburgueres Clássicos",
+        "produtos": [
+          {
+            "id": 1,
+            "nome": "Hamburguer Clássico",
+            "ingredientes": ["Pão de hambúrguer", "Carne de boi", "Queijo cheddar", "Alface", "Tomate", "Molho especial"],
+            "valor": 15.90
+          },
+          {
+            "id": 2,
+            "nome": "Hamburguer de Frango",
+            "ingredientes": ["Pão de hambúrguer integral", "Filé de frango grelhado", "Queijo prato", "Rúcula", "Tomate", "Maionese"],
+            "valor": 14.50
+          }
+        ]
+      },
+      {
+        "categoria": "Hamburgueres Especiais",
+        "produtos": [
+          {
+            "id": 3,
+            "nome": "Double Bacon Burger",
+            "ingredientes": ["Pão brioche", "Dois hambúrgueres de carne", "Queijo cheddar", "Bacon", "Cebola caramelizada", "Molho barbecue"],
+            "valor": 18.90
+          },
+          {
+            "id": 4,
+            "nome": "Veggie Burger",
+            "ingredientes": ["Pão de hambúrguer integral", "Hamburguer de grão de bico e cogumelos", "Queijo vegano", "Alface", "Cebola roxa", "Maionese vegana"],
+            "valor": 16.50
+          }
+        ]
+      },
+      {
+        "categoria": "Acompanhamentos",
+        "produtos": [
+          {
+            "id": 5,
+            "nome": "Batata Frita",
+            "ingredientes": ["Batata", "Sal"],
+            "valor": 7.90
+          },
+          {
+            "id": 6,
+            "nome": "Onion Rings",
+            "ingredientes": ["Cebola", "Farinha de trigo", "Óleo", "Sal"],
+            "valor": 9.50
+          }
+        ]
+      },
+      {
+        "categoria": "Bebidas",
+        "produtos": [
+          {
+            "id": 7,
+            "nome": "Refrigerante (Lata)",
+            "ingredientes": ["Água carbonatada", "Açúcar", "Corante", "Aroma natural"],
+            "valor": 4.50
+          },
+          {
+            "id": 8,
+            "nome": "Suco Natural",
+            "ingredientes": ["Fruta da estação"],
+            "valor": 5.90
+          },
+          {
+            "id": 9,
+            "nome": "Água Mineral",
+            "ingredientes": ["Água"],
+            "valor": 3.00
+          }
+        ]
+      }
+    ]
+  }
+  
