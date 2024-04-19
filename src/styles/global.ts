@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+import { createGlobalStyle } from 'styled-components';
+import { theme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: none;
+        border: none;
     }
 
     body {
