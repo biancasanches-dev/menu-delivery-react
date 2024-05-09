@@ -1,5 +1,5 @@
 import { FaBurger, FaWineGlass, FaBowlRice } from 'react-icons/fa6';
-import { ICategory } from '../../hooks/useData';
+import { ICategory } from 'src/utils/types';
 import * as S from './styles';
 
 interface CategoryLinkProps extends ICategory { }

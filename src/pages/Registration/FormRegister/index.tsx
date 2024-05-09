@@ -3,31 +3,29 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import FormButton from "src/components/ui/FormButton";
 import FormField from "src/components/ui/FormField";
 import * as S from "./styles";
-import { z } from "zod";
-
-export const RegistrationSchema = z.object({
-    name: z.string().min(4, {message: "Digite seu nome!"}),
-    phone: z.string().min(11, {message: "Digite seu telefone!"}),
-    email: z.string().email({message: "Digite um email válido!"}),
-    password: z.string().min(6, {message: "Senha inválida!"}),
-    confirmPassword: z.string().min(6, {message: "Senhas não batem!"})
-}).refine(({ password, confirmPassword}) => password === confirmPassword, {
-    message: "As senhas não coincidem!",
-    path: ["confirmPassword"]
-});
-
-export type RegistrationSchemaType = z.infer<typeof RegistrationSchema>;
+import { UserSchemaRegister, UserSchemaRegisterType } from "src/utils/UserSchema";
+import { useContext } from "react";
+import { AuthContext } from "src/contexts/AuthContext";
 
 export default function RegistrationForm() {
+    const { handleRegister } = useContext(AuthContext);
 
     const {
         register,
         handleSubmit,
-        trigger,
+        // trigger,
         formState: { errors },
-    } = useForm<RegistrationSchemaType>({ resolver: zodResolver(RegistrationSchema) });
+    } = useForm<UserSchemaRegisterType>({ resolver: zodResolver(UserSchemaRegister) });
 
-    const onSubmit: SubmitHandler<RegistrationSchemaType> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<UserSchemaRegisterType> = (data) => {
+        try {
+            handleRegister(data.name, data.email, data.password);
+            console.log('dados enviados: ', data);
+            alert('Cadastro efetuado com sucesso');
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return(
         <S.FormRegister onSubmit={handleSubmit(onSubmit)}>
@@ -38,9 +36,9 @@ export default function RegistrationForm() {
                 name="name"
                 register={register}
                 error={errors.name}
-                onChange={() => trigger("name")}
+                // onChange={() => trigger("name")}
             />
-            <FormField
+            {/* <FormField
                 label="Telefone"
                 type="tel"
                 placeholder="Digite seu telefone"
@@ -48,7 +46,7 @@ export default function RegistrationForm() {
                 register={register}
                 error={errors.phone}
                 onChange={() => trigger("phone")}
-            />
+            /> */}
             <FormField
                 label="Email"
                 type="email"
@@ -56,7 +54,7 @@ export default function RegistrationForm() {
                 name="email"
                 register={register}
                 error={errors.email}
-                onChange={() => trigger("email")}
+                // onChange={() => trigger("email")}
             />
             <FormField
                 label="Senha"
@@ -65,7 +63,7 @@ export default function RegistrationForm() {
                 name="password"
                 register={register}
                 error={errors.password}
-                onChange={() => trigger("password")}
+                // onChange={() => trigger("password")}
             />
             <FormField
                 label="Confirmar senha"
@@ -74,7 +72,7 @@ export default function RegistrationForm() {
                 name="confirmPassword"
                 register={register}
                 error={errors.confirmPassword}
-                onChange={() => trigger("confirmPassword")}
+                // onChange={() => trigger("confirmPassword")}
             />
             <FormButton>Cadastrar</FormButton>
         </S.FormRegister>

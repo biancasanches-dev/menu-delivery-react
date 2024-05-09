@@ -6,6 +6,8 @@ import { IconContext } from 'react-icons';
 import { GlobalStyles } from './styles/global';
 import { theme } from './styles/theme';
 import Router from './routes';
+import { AuthProvider } from './contexts/AuthContext';
+import CartProvider from './contexts/CartContext';
 const queryClient = new QueryClient(); 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,7 +16,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
 				<IconContext.Provider value={{ className: 'react-icons' }}>
-					<Router />
+					<AuthProvider>
+						<CartProvider>
+							<Router />
+						</CartProvider>
+					</AuthProvider>
 				</IconContext.Provider>
 			</ThemeProvider>
 		</QueryClientProvider>

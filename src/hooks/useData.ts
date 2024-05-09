@@ -1,25 +1,10 @@
 import { useQuery, UseQueryResult } from 'react-query';
 import axios, { AxiosResponse } from 'axios';
-
-export interface IProduct {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  ingredients: string[];
-  image: string;
-}
-
-export interface ICategory {
-  category: string;
-  iconName: string;
-  products?: IProduct[];
-}
+import { ICategory } from 'src/utils/types';
 
 const fetchData = async (): Promise<ICategory[]> => {
 	try {
 		const response: AxiosResponse<ICategory[]> = await axios.get('http://localhost:8888/menu');
-		console.log('Response:', response);
 		return response.data;
 	} catch (error) {
 		console.log('Error fetching menu:', error);
@@ -27,6 +12,6 @@ const fetchData = async (): Promise<ICategory[]> => {
 	}
 };
 
-export const useData = (): UseQueryResult<ICategory[], unknown> => {
+export const useData = (): UseQueryResult<ICategory[]> => {
 	return useQuery('data', fetchData);
 };

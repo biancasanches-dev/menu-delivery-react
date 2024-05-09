@@ -1,15 +1,16 @@
 import { BsCartFill } from 'react-icons/bs';
-import { IProduct } from '../../hooks/useData';
+import { IProduct } from 'src/utils/types';
 import * as S from './styles';
 import Modal from 'src/components/ui/Modal';
 
 interface ProductModalProps {
     product: IProduct | null;
-    onClose: () => void;
 	isOpen: boolean;
+    onClose: () => void;
+	addToCart: () => void;
 }
 
-export default function ProductModal({ product, onClose, isOpen }: ProductModalProps) {
+export default function ProductModal({ product, onClose, isOpen, addToCart }: ProductModalProps) {
 	return(
 		<>
 			<Modal onClose={onClose} isOpen={isOpen}>
@@ -21,7 +22,7 @@ export default function ProductModal({ product, onClose, isOpen }: ProductModalP
 					<textarea name="Observação" id="" placeholder="Digite sua observação"></textarea>
 					<div>
 						<p>{product?.price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</p>
-						<button>
+						<button onClick={addToCart}>
 							<BsCartFill />
 						</button>
 					</div>

@@ -1,4 +1,4 @@
-import { BsCartFill, BsChatRightDotsFill, BsGeoAltFill, BsBookFill } from 'react-icons/bs';
+import { FaCartShopping, FaBookOpen, FaLocationDot, FaPhone } from "react-icons/fa6";
 import logo from './assets/logo.jpg';
 import * as S from './styles';
 import Login from 'src/pages/Login';
@@ -10,19 +10,19 @@ export default function Header() {
 			<ul>
 				<li>
 					<S.CustomLink to="/">
-						<BsBookFill />
+						<FaBookOpen />
                     Cardápio
 					</S.CustomLink>
 				</li>
 				<li>
 					<S.CustomLink to="/">
-						<BsGeoAltFill />
+						<FaLocationDot />
                     Áreas de entrega
 					</S.CustomLink>
 				</li>
 				<li>
 					<S.CustomLink to="/">
-						<BsChatRightDotsFill />
+						<FaPhone />
                     Fale conosco
 					</S.CustomLink>
 				</li>
@@ -31,7 +31,7 @@ export default function Header() {
 				</li>
 				<li>
 					<S.CustomLink to="/">
-						<BsCartFill />
+						<FaCartShopping />
 					</S.CustomLink>
 				</li>
 			</ul>

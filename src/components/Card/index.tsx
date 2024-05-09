@@ -1,12 +1,13 @@
 import * as S from './styles';
 import { BsCartFill } from 'react-icons/bs';
-import { IProduct } from '../../hooks/useData';
+import { IProduct } from 'src/utils/types';
 
 interface CardProps extends IProduct {
     onClick: () => void; 
+    addToCart: () => void; 
 }
 
-export default function Card({ image, name, ingredients, price, onClick }: CardProps) {
+export default function Card({ image, name, ingredients, price, onClick, addToCart }: CardProps) {
 
 	return(
 		<S.CardContainer onClick={onClick}>
@@ -17,7 +18,7 @@ export default function Card({ image, name, ingredients, price, onClick }: CardP
 			</S.CardContent>
 			<S.CardPrice>
 				<p>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-				<button>
+				<button type='button' onClick={addToCart}>
 					<BsCartFill />
 				</button>
 			</S.CardPrice>

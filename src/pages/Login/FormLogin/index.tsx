@@ -1,33 +1,36 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import FormField from "../../../components/ui/FormField";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import * as S from "./styles"
-import { RegistrationSchema } from "src/pages/Registration/FormRegister";
-// import { Link } from "react-router-dom";
 import Registration from "src/pages/Registration";
 import FormButton from "src/components/ui/FormButton";
+import { UserSchemaLogin, UserSchemaLoginType } from "src/utils/UserSchema";
+import { useContext, useState } from "react";
+import { AuthContext } from "src/contexts/AuthContext";
 
-// const SignUpSchema = z.object({
-//     email: z.string().email({message: "Digite um email válido!"}),
-//     password: z.string().min(6, {message: "Senha inválida!"})
-// });
+export default function FormLogin({ onLoginSuccess }: { onLoginSuccess: () => void }) {
 
-// export type SignUpSchemaType = z.infer<typeof SignUpSchema>;
-
-type RegistrationSchemaType = z.infer<typeof RegistrationSchema>;
-
-export default function FormLogin() {
-
+    const { handleLogin } = useContext(AuthContext);
+    const [isLoggedIn, setIsLogged] = useState(false);
+    
     const {
         register,
         handleSubmit,
         trigger,
         formState: { errors },
-    } = useForm<RegistrationSchemaType>({ resolver: zodResolver(RegistrationSchema) });
-    
-    const onSubmit: SubmitHandler<RegistrationSchemaType> = (data) => console.log(data);
+    } = useForm<UserSchemaLoginType>({ resolver: zodResolver(UserSchemaLogin) });
+
+    const onSubmit: SubmitHandler<UserSchemaLoginType> = async (data) => {
+        try {
+            handleLogin(data.email, data.password);
+            setIsLogged(true);
+            onLoginSuccess();
+            console.log('dados enviados: ', data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,12 +56,10 @@ export default function FormLogin() {
                 />
 
                 <S.FormFooter>
-                    {/* <Link to="/cadastro">Não tem conta? Cadastre-se</Link> */}
                     <Registration />
                     <FormButton>Entrar</FormButton>
                 </S.FormFooter>
             </S.FormLogin>
-        </form>
-        
+        </form>        
     )
 };

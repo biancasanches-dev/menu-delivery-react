@@ -5,6 +5,7 @@ import { theme } from '../../styles/theme';
 
 export const Header = styled.header`
     display: grid;
+    position: relative;
     ul {
         display: flex;
         list-style: none;
@@ -47,6 +48,7 @@ export const CustomLink = styled(Link)`
     font-size: 1.2rem;
     margin-right: 20px;
     cursor: pointer;
+    background-color: transparent;
 
     &:hover {
         .react-icons {
