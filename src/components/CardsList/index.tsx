@@ -4,9 +4,11 @@ import { IProduct } from 'src/utils/types';
 import Card from '../Card';
 import ProductModal from '../ProductModal';
 import * as S from './styles';
+import { useCart } from 'src/contexts/CartContext';
 
 export default function Cardslist() {
 	const { data } = useData();
+	const { addItem, openCart } = useCart();
 	const [isModalOpen, setModalOpen] = useState(false);
 	const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
 
@@ -21,7 +23,9 @@ export default function Cardslist() {
 	}
 
 	function addToCart(product: IProduct) {
-		console.log('Adicionando ao carrinho: ', product);
+		addItem(product);
+		openCart();
+		setModalOpen(false);
 	}
 
 	return(
@@ -49,7 +53,7 @@ export default function Cardslist() {
 				product={selectedProduct} 
 				onClose={handleCloseModal}
 				isOpen={isModalOpen}
-				addToCart={() => addToCart(selectedProduct as IProduct)} 
+				addToCart={() => addToCart(selectedProduct as IProduct)}
 			/>
 		</S.ProductsContainer>
 

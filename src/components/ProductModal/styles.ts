@@ -4,10 +4,11 @@ export const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 80vh;
 
     img {
         border-radius: 8px;
-        height: 580px;
+        height: 40vh;
         object-fit: cover;
     }
 

@@ -28,6 +28,7 @@ export const Header = styled.header`
         background-image: url(${background});
         background-size: cover;
         background-position: center;
+
         img {
             position: absolute;
             width: 13rem;
@@ -35,6 +36,12 @@ export const Header = styled.header`
             border-radius: 50%;
             border: .2px solid #000;
             bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover {
+                scale: 1.01;
+            }
         }
     }
 `;

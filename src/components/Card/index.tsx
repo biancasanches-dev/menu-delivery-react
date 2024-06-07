@@ -4,7 +4,7 @@ import { IProduct } from 'src/utils/types';
 
 interface CardProps extends IProduct {
     onClick: () => void; 
-    addToCart: () => void; 
+    addToCart: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function Card({ image, name, ingredients, price, onClick, addToCart }: CardProps) {
@@ -18,7 +18,10 @@ export default function Card({ image, name, ingredients, price, onClick, addToCa
 			</S.CardContent>
 			<S.CardPrice>
 				<p>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-				<button type='button' onClick={addToCart}>
+				<button type='button' onClick={(event) => {
+					event.stopPropagation();
+					addToCart(event);
+				}}>
 					<BsCartFill />
 				</button>
 			</S.CardPrice>

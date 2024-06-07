@@ -2,7 +2,6 @@ import { BsCartFill } from 'react-icons/bs';
 import { IProduct } from 'src/utils/types';
 import * as S from './styles';
 import Modal from 'src/components/ui/Modal';
-
 interface ProductModalProps {
     product: IProduct | null;
 	isOpen: boolean;
@@ -11,6 +10,7 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose, isOpen, addToCart }: ProductModalProps) {
+	
 	return(
 		<>
 			<Modal onClose={onClose} isOpen={isOpen}>

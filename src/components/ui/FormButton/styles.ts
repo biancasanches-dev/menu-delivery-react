@@ -1,5 +1,5 @@
-import { theme } from "src/styles/theme";
-import styled from "styled-components";
+import { theme } from 'src/styles/theme';
+import styled from 'styled-components';
 
 export const Button = styled.button`
 

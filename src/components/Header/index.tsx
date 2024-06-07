@@ -1,7 +1,8 @@
-import { FaCartShopping, FaBookOpen, FaLocationDot, FaPhone } from "react-icons/fa6";
+import { FaBookOpen, FaLocationDot, FaPhone } from 'react-icons/fa6';
 import logo from './assets/logo.jpg';
 import * as S from './styles';
 import Login from 'src/pages/Login';
+import Cart from 'src/pages/Cart';
 
 export default function Header() {
 
@@ -30,9 +31,7 @@ export default function Header() {
 					<Login />
 				</li>
 				<li>
-					<S.CustomLink to="/">
-						<FaCartShopping />
-					</S.CustomLink>
+					<Cart />
 				</li>
 			</ul>
 			<div>

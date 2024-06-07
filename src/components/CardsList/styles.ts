@@ -7,10 +7,11 @@ export const ProductsContainer = styled.div`
 
     h1 {
         color: ${({ theme }) => theme.colors.light};
-        border-bottom: 4px solid ${({ theme }) => theme.colors.primary};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
         width: fit-content;
         margin-bottom: 1.5rem;
         padding-right: 1.5rem;
+        padding-bottom: .5rem;
     }
 `;
 
