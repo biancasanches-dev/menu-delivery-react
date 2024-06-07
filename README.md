@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# MENU - Cardápio Online para Delivery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um aplicativo de cardápio online para delivery desenvolvido com React e TypeScript. Ele utiliza JSON Server como API simulada, React Hook Form para manipulação de formulários e Styled Components para estilização.
 
-Currently, two official plugins are available:
+## Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O objetivo deste projeto é fornecer uma interface de usuário intuitiva para visualizar e solicitar itens de um cardápio de delivery. Os dados dos itens do cardápio são armazenados em um arquivo db.json e servidos via JSON Server.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React: Biblioteca para construção da interface de usuário.
+TypeScript: Superset de JavaScript que adiciona tipagem estática ao código.
+JSON Server: Ferramenta para criar uma API RESTful simples utilizando um arquivo JSON.
+React Hook Form: Biblioteca para manipulação de formulários em React.
+Styled Components: Biblioteca para estilização de componentes em React.
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Visualização de itens do cardápio.
+Adição de itens ao carrinho.
+Login e cadastro de usuário.
+Submissão de pedidos. (Em andamento)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
